@@ -17,7 +17,7 @@ public class UserDaoJDBCImpl implements UserDao {
         final String createTableUser = "CREATE TABLE IF NOT EXISTS `preprojectjm`.`user` (\n" +
                 "  `id` INT(11) NOT NULL AUTO_INCREMENT,\n" +
                 "  `name` VARCHAR(50) NULL,\n" +
-                "  `last_name` VARCHAR(50) NULL,\n" +
+                "  `lastName` VARCHAR(50) NULL,\n" +
                 "  `age` INT(4) NULL,\n" +
                 "  PRIMARY KEY (`id`));";
         try (Connection connection = Util.getConnection();
@@ -43,7 +43,7 @@ public class UserDaoJDBCImpl implements UserDao {
     }
 
     public void saveUser(String name, String lastName, byte age) {
-        final String sql = "INSERT INTO preprojectjm.user(name, last_name, age) VALUES (?,?,?)";
+        final String sql = "INSERT INTO preprojectjm.user(name, lastName, age) VALUES (?,?,?)";
         try (Connection connection = Util.getConnection();
              PreparedStatement preparedStatement = connection != null ? connection.prepareStatement(sql) : null) {
             if (preparedStatement != null) {
@@ -80,7 +80,7 @@ public class UserDaoJDBCImpl implements UserDao {
             while (resultSet.next()) {
                 User user = new User(resultSet.getLong("id"),
                         resultSet.getString("name"),
-                        resultSet.getString("last_name"),
+                        resultSet.getString("lastName"),
                         resultSet.getByte("age"));
                 users.add(user);
             }
