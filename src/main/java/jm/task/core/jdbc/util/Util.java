@@ -41,8 +41,7 @@ public class Util {
         properties.put(Environment.PASS, PASSWORD);
         properties.put(Environment.DIALECT, "org.hibernate.dialect.MySQLDialect");
         properties.put(Environment.SHOW_SQL, "true");
-//        properties.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
-        properties.put(Environment.HBM2DDL_AUTO, "create-drop");
+//        properties.put(Environment.HBM2DDL_AUTO, "update");
         if (sessionFactory == null) {
             try {
                 Configuration configuration = new Configuration();
@@ -59,5 +58,4 @@ public class Util {
         }
         return sessionFactory;
     }
-
 }

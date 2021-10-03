@@ -7,7 +7,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 
-@Table(name = "user")
+@Table(name = "user", schema = "preprojectjm")
 @Entity
 @Data
 @NoArgsConstructor
